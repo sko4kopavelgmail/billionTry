@@ -1,8 +1,10 @@
 package app.Controller;
 
 import app.Domain.Message;
+import app.Domain.User;
 import app.Repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,11 +30,12 @@ public class Controller {
     }
 
     @PostMapping("/main")
-    public String add(@RequestParam String text,
+    public String add(@AuthenticationPrincipal User user,
+                      @RequestParam String text,
                       @RequestParam String tag,
                       Map<String, Object> model
     ){
-        Message message = new Message(text, tag);
+        Message message = new Message(text, tag, user);
         messageRepository.save(message);
 
         Iterable<Message> messages = messageRepository.findAll();
