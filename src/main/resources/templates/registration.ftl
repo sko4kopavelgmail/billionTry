@@ -3,6 +3,6 @@
 
 <@common.page>
     Add new user
-    ${message}
-    <@login.login "/registration" />
+    ${message?ifExists}
+    <@login.login"/registration"/>
 </@common.page>
