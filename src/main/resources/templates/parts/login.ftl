@@ -1,15 +1,9 @@
-<#macro login path>
-    <form action="${path}" method="post">
-        <div><label> User Name : <input type="text" name="username"/> </label></div>
-        <div><label> Password: <input type="password" name="password"/> </label></div>
-        <input type="hidden" name="_csrf" value="${_csrf.token}">
-        <div><input type="submit" value="Sign In"/></div>
-    </form>
-</#macro>
-
+<#include "security.ftl">
 <#macro logout>
 <form action="/logout" method="post">
     <input type="hidden" name="_csrf" value="${_csrf.token}">
-    <input type="submit" value="Sign Out"/>
+    <#if known> <input class="btn btn-primary" type="submit" value="Sign Out"/>
+    <#else> <input class="btn btn-primary" type="submit" value="Sign In"/>
+    </#if>
 </form>
 </#macro>
