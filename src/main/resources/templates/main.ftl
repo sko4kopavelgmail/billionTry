@@ -15,20 +15,12 @@
 </div><br>
 
 
-    <#if isAdmin>
+    <#if isAdmin || isTeacher>
         <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
            aria-controls="collapseExample">
             Add new message
         </a>
     </#if>
-
-    <#if isTeacher>
-        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
-           aria-controls="collapseExample">
-            Add new message
-        </a>
-    </#if>
-
 
 <div class="collapse" id="collapseExample">
     <div class="form-group">

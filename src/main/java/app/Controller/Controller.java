@@ -34,7 +34,7 @@ public class Controller {
         if (filter != null && !filter.isEmpty()) {
             messages = messageRepository.findByTag(filter);
         }else {
-            messages = messageRepository.findAll();
+            messages = messageRepository.findAllByOrderByIdDesc();
         }
         model.addAttribute("messages",messages);
         model.addAttribute("filter",filter);
@@ -51,7 +51,7 @@ public class Controller {
             ){
         Message message = new Message(text, tag, user, title);
         messageRepository.save(message);
-        Iterable<Message> messages = messageRepository.findAll();
+        Iterable<Message> messages = messageRepository.findAllByOrderByIdDesc();
         model.put("messages",messages);
         return "main";
     }
