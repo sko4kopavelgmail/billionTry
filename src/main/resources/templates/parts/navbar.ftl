@@ -24,7 +24,7 @@
             </li>
             </#if>
         </ul>
-        <div class="navbar-text mr-3"><a href="#">${name}</a></div>
+        <div class="navbar-text mr-3"><a href="/user/profile">${name}</a></div>
         <@logout.logout/>
     </div>
 </nav>

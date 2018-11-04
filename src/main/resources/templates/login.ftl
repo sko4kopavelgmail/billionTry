@@ -8,6 +8,8 @@
           href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
     <link rel="stylesheet" href="/static/css/login.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 </head>
 <body>
 <div class="pen-title">
@@ -22,7 +24,9 @@
     </div>
     <div class="form">
         <h2>Login to your account</h2>
-        ${message?ifExists}
+        <div>
+            ${message?ifExists}
+        </div><br/>
         <form action="/login" method="post">
             <input type="text" placeholder="Username" name="username"/>
             <input type="password" placeholder="Password" name="password"/>
@@ -35,6 +39,10 @@
         <form action="/registration" method="post">
             <input type="text" placeholder="First name" name="firstName">
             <input type="text" placeholder="Last name" name="lastName">
+            <select title="Choose your sex" name="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
             <input type="email" placeholder="email" name="email"/>
             <input type="text" placeholder="Username" name="username"/>
             <input type="password" placeholder="Password" name="password"/>
@@ -48,5 +56,10 @@
 
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="/static/js/login.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+
 </body>
 </html>

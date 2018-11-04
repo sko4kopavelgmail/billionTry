@@ -21,6 +21,7 @@ public class User implements UserDetails {
     private String activationCode;
     private String firstName;
     private String lastName;
+    private Boolean sex;
 
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
@@ -132,5 +133,11 @@ public class User implements UserDetails {
         this.lastName = lastName;
     }
 
+    public Boolean getSex() {
+        return sex;
+    }
 
+    public void setSex(Boolean sex) {
+        this.sex = sex;
+    }
 }
