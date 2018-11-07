@@ -7,10 +7,15 @@
     <form method="post" class="center-block">
 
         <!-- First and last name -->
-        <div class="form-group">
-            <input type="text" name="firstName" class="form-control mt-2" placeholder="Input your first name"
+        <div class="form-group" >
+            <label for="firstName">First name</label>
+            <input name="firstName" type="text" class="form-control" id="firstName" aria-describedby="change this field if you want to"
                    value="${firstName!''}">
-            <input type="text" name="lastName" class="form-control mt-2" placeholder="Input your last name"
+        </div>
+
+        <div class="form-group" >
+            <label for="LastName">Last name</label>
+            <input name="lastName" type="text" class="form-control" id="LastName" aria-describedby="change this field if you want to"
                    value="${lastName!''}">
         </div>
 
@@ -33,7 +38,7 @@
         </div>
 
         <!-- Password -->
-        <div class="form-group">
+        <div class="form-group mt-3">
             <a class="btn btn-primary" data-toggle="collapse" href="#password" role="button" aria-expanded="false"
                aria-controls="collapseExample">
                 Do you wanna change your password?
@@ -41,17 +46,17 @@
         </div>
         <div class="collapse" id="password">
             <div class="form-group">
-                <input type="password" name="password" class="form-control mt-2" placeholder="Input password">
-                <input type="password" name="text" class="form-control mt-2" placeholder="confirm your password">
+                <label for="pass">Password</label>
+                <input type="password" name="password" class="form-control mb-3" id="pass" placeholder="Password">
+                <input type="password" name="rePassword" class="form-control" id="pass" placeholder="Confirm your password">
             </div>
         </div>
 
         <!-- Email -->
-        <div class="form-group row">
-            <label class="col-sm-2 col-formm-label">Email: </label>
-            <div class="col-sm-6">
-                <input type="email" name="email" class="form-control" placeholder="Email" value="${email!''}">
-            </div>
+        <div class="form-group" >
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                   placeholder="Enter email" <value="${email!''}">
         </div>
 
         <input type="hidden" name="_csrf" value="${_csrf.token}"/>

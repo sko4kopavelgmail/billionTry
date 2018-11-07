@@ -75,8 +75,34 @@ public class UserService implements UserDetailsService {
         return userRepository.findAll();
     }
 
-    public void saveUser(User user, String username, Map<String, String> form) {
-        user.setUsername(username);
+    public void saveUser(User user, String firstName, String lastName, String sex,
+                         String username, String email,String password, Map<String, String> form) {
+        if (sex.equals("Male"))
+            user.setSex(true);
+        else
+            user.setSex(false);
+
+        String userEmail = user.getEmail();
+
+        boolean isEmailChanged = (email != null && !email.equals(userEmail))
+                || (userEmail != null && !userEmail.equals(email));
+
+        if (isEmailChanged){
+            user.setEmail(email);
+            user.setActivationCode(UUID.randomUUID().toString());
+        }
+
+        if (!StringUtils.isEmpty(username))
+            user.setUsername(username);
+
+        if (!StringUtils.isEmpty(password))
+            user.setPassword(password);
+
+        if (!StringUtils.isEmpty(firstName))
+            user.setFirstName(firstName);
+
+        if (!StringUtils.isEmpty(lastName))
+            user.setLastName(lastName);
 
         Set<String> roles = Arrays.stream(Role.values())
                 .map(Role::name)

@@ -1,26 +1,25 @@
 <#import "parts/common.ftl" as common>
 
 <@common.page>
-    List of users:
     <br/>
-    <table>
+    <table class="table table-striped">
         <thead>
-        <th>Name  </th>
-        <th>Role</th>
-        <th></th>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">User name</th>
+            <th scope="col">Roles</th>
+            <th scope="col"></th>
+        </tr>
         </thead>
-
-
-
-    <#list users as user>
-    <tbody>
-    <tr>
-        <td>${user.username}</td>
-        <td><#list user.roles as role>${role}<#sep>, </#list></td>
-        <td><a href="/user/${user.id}">Edit</a></td>
-    </tr>
-    </tbody>
-    </#list>
-
+        <#assign count = 1>
+        <#list users as user>
+            <tr>
+                <th scope="row">${count}</th>
+                <td>${user.username}</td>
+                <td><#list user.roles as role>${role}<#sep>, </#list></td>
+                <td><a href="/user/${user.id}">Edit</a></td>
+            </tr>
+        <#assign count ++>
+        </#list>
     </table>
 </@common.page>

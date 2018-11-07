@@ -2,8 +2,8 @@ package app.Domain;
 
 import org.springframework.security.core.GrantedAuthority;
 
-public enum Role implements GrantedAuthority{
-    USER,TEACHER,ADMIN;
+public enum Language implements GrantedAuthority {
+    JAVA, SQL, CPLUS, C;
 
     @Override
     public String getAuthority() {

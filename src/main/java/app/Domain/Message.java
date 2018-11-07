@@ -20,6 +20,7 @@ public class Message {
 
     private String filename;
 
+
     public String getAuthorName(){
         return author != null ? author.getUsername() : "<none>";
     }

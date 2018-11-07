@@ -36,11 +36,16 @@ public class UserController {
     @PreAuthorize("hasAuthority('ADMIN')")
     @PostMapping
     public String userSave(
+            @RequestParam String firstName,
+            @RequestParam String lastName,
+            @RequestParam String sex,
             @RequestParam String username,
+            @RequestParam String email,
+            @RequestParam String password,
             @RequestParam Map<String, String> form,
             @RequestParam("userId") User user
     ){
-        userService.saveUser(user,username,form);
+        userService.saveUser(user,firstName,lastName,sex,username,email,password,form);
         return "redirect:/user";
     }
 
