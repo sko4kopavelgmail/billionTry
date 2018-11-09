@@ -61,7 +61,8 @@
             <label class="form-check-label">
                 <input type="checkbox" class="form-check-input" name="${role}" ${user.roles?seq_contains(role)?string("checked","")}>
                 ${role}
-            </label><br/>
+            </label>
+            <br/>
         </#list>
     </div>
 

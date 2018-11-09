@@ -9,12 +9,26 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
+            <#if known && (isTeache?ifExists || isAdmin?ifExists)>
+            <li class="nav-item dropdown">
+                <a  class="nav-link dropdown-toggle"
+                        href="/test" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Test
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item text-center" href="/test">Test</a>
+                    <a class="dropdown-item text-center" href="/test/addTest">Create test</a>
+                    <a class="dropdown-item text-center" href="/test/editTest">Edit test</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item text-center" href="/test/testStudents">Tormenting students</a>
+                </div>
             </li>
+            <#else>
             <li class="nav-item">
-                <a class="nav-link" href="#">Test</a>
+                <a class="nav-link" href="/test">Test</a>
             </li>
+            </#if>
+
             <li class="nav-item">
                 <a class="nav-link" href="/main">Messages</a>
             </li>

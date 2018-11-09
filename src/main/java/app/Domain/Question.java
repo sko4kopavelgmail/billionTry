@@ -40,4 +40,12 @@ public class Question {
         this.question = question;
         this.languages = languages;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

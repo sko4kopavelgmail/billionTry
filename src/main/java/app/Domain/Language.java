@@ -3,7 +3,7 @@ package app.Domain;
 import org.springframework.security.core.GrantedAuthority;
 
 public enum Language implements GrantedAuthority {
-    JAVA, SQL, CPLUS, C;
+    JAVA, SQL, C_PLUS, C;
 
     @Override
     public String getAuthority() {
