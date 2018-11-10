@@ -1,9 +1,11 @@
 package app.Domain;
 
+import app.Domain.BaseEntity.BaseEntity;
+
 import javax.persistence.*;
 
 @Entity
-public class TestWithQuestions {
+public class TestWithQuestions extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

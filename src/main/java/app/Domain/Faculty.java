@@ -1,10 +1,12 @@
 package app.Domain;
 
+import app.Domain.BaseEntity.BaseEntity;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "Faculty")
-public class Faculty {
+public class Faculty extends BaseEntity {
 
     public Long getId() {
         return id;

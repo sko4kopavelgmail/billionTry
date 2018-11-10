@@ -1,11 +1,13 @@
 package app.Domain;
 
+import app.Domain.BaseEntity.BaseEntity;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class Question {
+public class Question extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

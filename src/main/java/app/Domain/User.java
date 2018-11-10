@@ -1,5 +1,6 @@
 package app.Domain;
 
+import app.Domain.BaseEntity.BaseEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -9,7 +10,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "usr")
-public class User implements UserDetails {
+public class User extends BaseEntity implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
