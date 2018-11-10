@@ -19,6 +19,7 @@
                     <a class="dropdown-item text-center" href="/test">Test</a>
                     <a class="dropdown-item text-center" href="/test/addTest">Create test</a>
                     <a class="dropdown-item text-center" href="/test/editTest">Edit test</a>
+                    <a class="dropdown-item text-center" href="/test/addQuestion">Create question</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item text-center" href="/test/testStudents">Tormenting students</a>
                 </div>

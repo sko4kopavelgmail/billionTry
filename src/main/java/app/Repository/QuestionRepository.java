@@ -7,4 +7,9 @@ import java.util.List;
 
 public interface QuestionRepository extends JpaRepository<Question, Long> {
     List<Question> findAllById(Long id);
+
+    Iterable<Question> findAllByOrderByIdDesc();
+
+    Iterable<Question> findByQuestionContaining(String filter);
+
 }

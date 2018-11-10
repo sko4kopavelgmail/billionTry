@@ -1,6 +1,7 @@
 package app.Controller;
 
 import app.Domain.Language;
+import app.Domain.Question;
 import app.service.QuestionService;
 import app.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,35 +25,58 @@ public class TestController {
     private QuestionService questionService;
 
     @GetMapping
-    public String greeting(){
+    public String greeting() {
         return "test";
     }
 
+    /*Зашрузка страницы добавления теста*/
     @GetMapping("addTest")
-    public String loadAddTest(Model model){
-        model.addAttribute("langs",Language.values());
-        model.addAttribute("questions",questionService.findAll());
+    public String loadAddTest(
+            Model model,
+            @RequestParam(required = false, defaultValue = "") String filterQuestion
+    ) {
+
+        Iterable<Question> questions = testService.filter(filterQuestion);
+        model.addAttribute("questions", questions);
+        model.addAttribute("filterQuestion", filterQuestion);
         return "addTest";
     }
 
+    /*Обработка того, что прислала страницы добавления теста*/
     @PostMapping("addTest")
     public String addTest(
             @RequestParam Map<String, String> form,
             @RequestParam String name
-    ){
+    ) {
         testService.addTest(name, form);
         return "redirect:/test";
     }
 
+    /*Загрузка страницы добавления вопроса*/
+    @GetMapping("addQuestion")
+    public String loadAddQuestion(Model model) {
+        model.addAttribute("languages", Language.values());
+        return "addQuestion";
+    }
+
+    /*Обработка того, что прислала страницы добавления вопроса*/
+    @PostMapping("addQuestion")
+    public String addQuestion(
+            @RequestParam Map<String, String> form
+    ) {
+        questionService.addQuestion(form);
+        return "redirect:/test/addTest";
+    }
+
     //-----------
     @GetMapping("editTest")
-    public String editTest(){
+    public String editTest() {
 
         return "editTest";
     }
 
     @GetMapping("testStudents")
-    public String testStudents(){
+    public String testStudents() {
 
         return "testStudents";
     }

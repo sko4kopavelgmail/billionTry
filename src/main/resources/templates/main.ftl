@@ -32,7 +32,7 @@
             <button type=submit class="btn btn-primary mt-2">Add</button>
         </form>
     </div>
-</div>
+</div><br/>
 
 
     <#list messages as message>

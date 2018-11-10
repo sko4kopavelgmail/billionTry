@@ -38,15 +38,15 @@ public class TestService {
         return testFromDb != null;
     }
 
-    public void addTest(String name, Map<String, String> form){
+    public void addTest(String name, Map<String, String> form) {
 
         if (!name.isEmpty() && !isExist(form.get(name))) {
             form.remove("name");
             form.remove("_csrf");
-            if (!form.isEmpty()){
+            if (!form.isEmpty()) {
                 Test newTest = new Test(name);
                 save(newTest);
-                for (String key: form.keySet()){
+                for (String key : form.keySet()) {
                     Question tmp = questionService.getQuestion(Long.parseLong(key));
                     TestWithQuestions testWithQuestions = new TestWithQuestions(newTest, tmp);
                     testWQService.save(testWithQuestions);
@@ -54,6 +54,15 @@ public class TestService {
             }
 
         }
+
+    }
+
+    public Iterable<Question> filter(String filterQuestion) {
+
+        if (filterQuestion.isEmpty()) {
+            return questionService.findAllByOrderByIdDesc();
+        }else
+            return questionService.findByQuestionContaining(filterQuestion);
 
     }
 }
